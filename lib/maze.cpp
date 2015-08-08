@@ -1,11 +1,12 @@
-#include "maze.h"
-#include "sidewinder.h"
+#include "maze.hpp"
+#include "sidewinder.hpp"
 
+#include <cstdlib>
+#include <cstdio>
+#include <cassert>
 #include <fcntl.h>
 #include <unistd.h>
-#include <stdlib.h>
 #include <sys/mman.h>
-#include <assert.h>
 
 #ifndef min
 #define min(a, b) ((a) < (b) ? (a) : (b))

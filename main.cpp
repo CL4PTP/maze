@@ -1,5 +1,6 @@
-#include "lib/maze.h"
+#include "lib/maze.hpp"
 #include <stdio.h>
+#include <cstdlib>
 
 int main()
 {

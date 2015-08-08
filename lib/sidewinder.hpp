@@ -1,6 +1,6 @@
 #pragma once
 
-#include "maze.h"
+#include "maze.hpp"
 
 extern "C"
 {

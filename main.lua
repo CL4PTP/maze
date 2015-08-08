@@ -1,7 +1,8 @@
 local maze_mod = require('maze')
 
--- local maze = maze_mod.MazeClass.new('/Users/bence/dev/maze_262144x262144.bin', 262144, 262144)
-local maze = maze_mod.MazeClass.open('/Users/bence/dev/maze_262144x262144.bin')
+-- local maze = maze_mod.MazeClass.new('/Users/bence/dev/maze_32768x32768.bin', 32768, 32768)
+-- local maze = maze_mod.MazeClass.open('/Users/bence/dev/maze_32768x32768.bin')
+local maze = maze_mod.MazeClass.open('/Users/bence/dev/maze_32x32.bin')
 -- maze:generate(maze_mod.MazeGenerationType.Sidewinder)
 local tile_size = 20
 local zoom = 1

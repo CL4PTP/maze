@@ -1,8 +1,8 @@
-#include "xorshift.h"
+#include "xorshift.hpp"
 
-#include <stdlib.h>
-#include <string.h>
-#include <stdarg.h>
+#include <cstdlib>
+#include <cstring>
+#include <cstdarg>
 
 xorshift_t *
 xorshift_create(void)

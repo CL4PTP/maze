@@ -1,10 +1,17 @@
-#include "sidewinder.h"
+#include "sidewinder.hpp"
 
-#include <stdint.h>
+#include <cstdlib>
+#include <cstdint>
+#include <cstdio>
+#include <cassert>
 #include <unistd.h>
-#include <stdlib.h>
 #include <pthread.h>
-#include <assert.h>
+
+void
+maze_raw_or_set(maze_raw_t *raw, uint64_t index, uint8_t value);
+
+void
+maze_or_set(maze_t *maze, uint64_t x, uint64_t y, uint8_t value);
 
 typedef struct sidewinder_chunk_info_t
 {
@@ -51,7 +58,7 @@ maze_generate_sidewinder_process_chunk(void *_chunk_info)
 void
 maze_generate_sidewinder_inner(maze_t *maze)
 {
-	const int NUM_CORES = sysconf(_SC_NPROCESSORS_ONLN) * 2;
+	const int NUM_CORES = sysconf(_SC_NPROCESSORS_ONLN);
 	const uint64_t ROWS_PER_CHUNK = maze->raw->height / NUM_CORES;
 
 	assert(maze->raw->height % NUM_CORES == 0);

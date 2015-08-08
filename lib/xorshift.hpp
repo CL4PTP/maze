@@ -1,6 +1,6 @@
 #pragma once
 
-#include <stdint.h>
+#include <cstdint>
 
 /*
 	xorshift lifted from http://doc.rust-lang.org/rand/src/rand/lib.rs.html

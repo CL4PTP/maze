@@ -1,18 +1,14 @@
 #pragma once
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdint.h>
-#include <stdbool.h>
-#include <assert.h>
+#include <cstdint>
 
-#include "xorshift.h"
+#include "xorshift.hpp"
 
 typedef struct maze_raw_t
 {
 	uint64_t width;
 	uint64_t height;
-	uint32_t arr[];
+	uint32_t arr[1]; //marker for the rest of the array
 } maze_raw_t;
 
 typedef struct maze_t
