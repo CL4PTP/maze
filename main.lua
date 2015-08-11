@@ -1,9 +1,9 @@
 local maze_mod = require('maze')
 
 -- local maze = maze_mod.MazeClass.new('/Users/bence/dev/maze_32768x32768.bin', 32768, 32768)
--- local maze = maze_mod.MazeClass.open('/Users/bence/dev/maze_32768x32768.bin')
-local maze = maze_mod.MazeClass.open('/Users/bence/dev/maze_32x32.bin')
 -- maze:generate(maze_mod.MazeGenerationType.Sidewinder)
+-- local maze = maze_mod.MazeClass.open('/Users/bence/dev/maze_32x32.bin')
+local maze = maze_mod.MazeClass.open('/Users/bence/dev/maze_32768x32768.bin')
 local tile_size = 20
 local zoom = 1
 local maze_offset = {
@@ -34,18 +34,20 @@ function love.update(dt)
 		if shift_down then
 			zoom = zoom + 0.05
 		else
-			maze_offset.y = maze_offset.y - velocity
+			maze_offset.y = maze_offset.y + velocity
 		end
 	elseif love.keyboard.isDown('down') then
 		if shift_down then
 			zoom = math.max(0.1, zoom - 0.05)
 		else
-			maze_offset.y = maze_offset.y + velocity
+			maze_offset.y = maze_offset.y - velocity
 		end
-	elseif love.keyboard.isDown('left') then
-		maze_offset.x = maze_offset.x - velocity
-	elseif love.keyboard.isDown('right') then
+	end
+
+	if love.keyboard.isDown('left') then
 		maze_offset.x = maze_offset.x + velocity
+	elseif love.keyboard.isDown('right') then
+		maze_offset.x = maze_offset.x - velocity
 	end
 end
 
